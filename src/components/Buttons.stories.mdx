@@ -1,9 +1,9 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs/blocks";
 import { action } from "@storybook/addon-actions";
-import {withKnobs, boolean} from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, number, select } from "@storybook/addon-knobs";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "./Buttons";
 
-<Meta title="Design System|Buttons" component={PrimaryButton} />
+<Meta title="Design System|Buttons" component={PrimaryButton}> </Meta>
 
 # Buttons
 
@@ -11,7 +11,7 @@ Buttons are used to trigger actions within an application.
 
 ## Usage
 
-Buttons are used to trigger internal actions within your web applications.
+Buttons are used to trigger internal actions via clicks/taps on a device using the User interface within your web applications.
 
 ## Primary Buttons
 
@@ -19,22 +19,34 @@ Primary buttons are used as a call to action and indicate the most important act
 
 <Preview withToolbar>
   <Story name="primary">
-    <PrimaryButton disabled={boolean("Disabled", false )}  onClick={action('button-click')}>Hello world</PrimaryButton>
+    <PrimaryButton modifiers={select('modifiers', {
+  Error: 'error',
+  LargeError: ['error','large'],
+  SmallWarning: ['small', 'warning'],
+  Success: 'success',
+  None: null,
+}, null )}disabled={boolean("Disabled", false )}  onClick={action('button-click')}>{text("Label", "Hello there")}</PrimaryButton>
   </Story>
 </Preview>
 
 ## Secondary Buttons
 
-Primary buttons are used as a call to action and indicate the most important action on a page.
+Secondary buttons are used as a call to action and CAN be used indicate optional actions on a page.
 
-<Story name="secondary">
-  <SecondaryButton>Hello world</SecondaryButton>
-</Story>
+
+<Preview withToolbar>
+  <Story name="secondary">
+    <SecondaryButton disabled={boolean("Disabled", false )}  onClick={action('button-click')}>{text("Label", "Hello there")}</SecondaryButton>
+  </Story>
+</Preview>
+
 
 ## Tertiary Buttons
 
-Primary buttons are used as a call to action and indicate the most important action on a page.
+Tertiary buttons are used as a call to action and indicate tertiary options or less influential actions on a page. Can be open to intepretation.
 
-<Story name="tertiary">
-  <TertiaryButton>Hello world</TertiaryButton>
-</Story>
+<Preview withToolbar>
+  <Story name="tertiary">
+    <TertiaryButton disabled={boolean("Disabled", false )}  onClick={action('button-click')}>{text("Label", "Hello there")}</TertiaryButton>
+  </Story>
+</Preview>
