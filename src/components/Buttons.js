@@ -13,18 +13,20 @@ const BUTTON_MODIFIERS = {
  `,
   warning: ({ theme }) => `
   background-color: ${theme.status.warningColor};
+  border-color: ${theme.status.errorColor};
   color: ${theme.textColorInverted};
   &:hover, &:focus{
-      background-color: ${theme.secondaryColor};
+      background-color: ${theme.primaryColor};
       color: ${theme.status.warningColor};
       border-color: ${theme.status.warningColor};
   }
   `,
   error: ({ theme }) => `
     background-color: ${theme.status.errorColor};
-    color: ${theme.textColorInverted};
+    border-color: ${theme.status.errorColor};
+    color: ${theme.textColor};
     &:hover, &:focus{
-        background-color: ${theme.secondaryColor};
+        background-color: ${theme.primaryColor};
         color: ${theme.status.errorColor};
         border-color: ${theme.status.errorColor};
     }
@@ -32,8 +34,9 @@ const BUTTON_MODIFIERS = {
   success: ({ theme }) => `
   background-color: ${theme.status.successColor};
   color: ${theme.textColorInverted};
+  border-color: ${theme.status.successColor};
   &:hover, &:focus{
-      background-color: ${theme.secondaryColor};
+      background-color: ${theme.primaryColor};
       color: ${theme.status.successColor};
       border-color: ${theme.status.successColor};
   }
